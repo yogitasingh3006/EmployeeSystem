@@ -1,0 +1,28 @@
+﻿@model Employee
+
+<partial name="_Notifications" />
+<form method="post">
+    <div class="border p-3 mt-4" style="width:50%;margin:auto">
+        <div class="row pb-2">
+            <h2 class="text-primary">Login</h2>
+            <hr/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="EmailId"></label>
+            <input asp-for="EmailId" class="form-control"/>
+            <span asp-validation-for="EmailId" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control"/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Login</button>
+        @if(TempData["success"]!=null)
+        {
+            <h2 class="text-danger">@TempData["error"]</h2>
+        }
+
+    </div>
+</form>
+

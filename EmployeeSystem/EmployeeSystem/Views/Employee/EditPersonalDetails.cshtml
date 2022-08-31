@@ -1,0 +1,53 @@
+﻿@model Employee
+
+<partial name="_Notifications" />
+
+<form method="post" style="width:50%;margin:auto"   >
+    <div class="row pb-2" >
+        <h2 class="text-primary">Edit Personal Details</h2>
+        <hr/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+        <div class="mb-3">
+        <label asp-for="EmailId"></label>
+        <input asp-for="EmailId" class="form-control" />
+        <span asp-validation-for="EmailId" class="text-danger"></span>
+    </div>
+        <div class="mb-3">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+        <div class="mb-3">
+        <label asp-for="City"></label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+        <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input value="@Model.Password.ToString()" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+            
+        </div>
+         <div class="mb-3">
+      
+      <input value="@Model.Role.ToString()" asp-for="Role" hidden class="form-control" />
+        </div>
+           <div class="mb-3">
+      
+      <input value="@Model.DepartmentId" asp-for="DepartmentId" hidden class="form-control" />
+        </div>
+    <button type="submit" class="btn btn-primary" style="width:150px">Save Changes</button>
+    <a asp-controller="Employee" asp-action="EmployeePage" asp-route-id="@Model.Id" class="btn btn-secondary" style="width:150px">Back To Details</a>
+</form>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
+

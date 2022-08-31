@@ -1,0 +1,58 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "EmployeePage";
+}
+<partial name="_Notifications" />
+<div class="container p-3">
+    <div class="row pt-4">
+    <div class="col-6">
+        <h2 class="text-primary">Welcome @Model.Name</h2>
+    </div>
+   
+    </div>
+    <br/>
+    <table class="table table-bordered table-striped" style="width:50%" aria-describedby="table without borders">
+       
+            <tr>
+                <th>
+                    Name
+                </th>
+                <td>
+                    @Model.Name
+                </td>
+             </tr>
+               <tr>
+                <th>
+                    EmailID
+                </th>
+                <td>
+                    @Model.EmailId
+                </td>
+             </tr>
+             <tr>
+                <th>
+                    Phone
+                </th>
+                <td>
+                    @Model.Phone
+                </td>
+             </tr>
+               <tr>
+                <th>
+                    City
+                </th>
+                <td>
+                    @Model.City
+                </td>
+             </tr>
+               
+    </table>
+    <div class="row pt-4">
+     <div class="col-3">
+       <a asp-controller="Employee" asp-action="EditPersonalDetails" asp-route-id="@Model.Id" class="btn btn-primary mx-2"><i class="bi bi-pen"></i> Edit</a>
+    </div>
+    <div class="col-3">
+        <a class="btn btn-primary" asp-controller="Employee" asp-action="Logout" >Logout</a>
+    </div>
+    </div>
+</div>

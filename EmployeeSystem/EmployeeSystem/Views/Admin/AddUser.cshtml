@@ -1,0 +1,64 @@
+﻿@using EmployeeSystem.Models.Helper
+@model UserDetails
+
+<partial name="_Notifications" />
+
+<form method="post">
+    <div class="border p-3 mt-4" style="width:50%;margin:auto">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add User</h2>
+            <hr/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+        <a asp-controller="Employee" asp-action="AdminPage" class="btn btn-secondary" style="width:150px">Back To List</a>
+
+        <div class="mb-3">
+            <label asp-for="EmpName"></label>
+            <input asp-for="EmpName" class="form-control" />
+            <span asp-validation-for="EmpName" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="EmailId"></label>
+            <input asp-for="EmailId" class="form-control" />
+            <span asp-validation-for="EmailId" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DepartName"></label>
+            <select asp-for="DepartName" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfNames,"Value","Text"))"></select> 
+           
+        </div>
+         <div class="mb-3">
+            <label asp-for="Role"></label>
+            <select asp-for="Role" class="form-control">
+                <option>Admin</option>
+                <option>Employee</option>
+            </select>
+        </div>
+            </div>
+</form>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

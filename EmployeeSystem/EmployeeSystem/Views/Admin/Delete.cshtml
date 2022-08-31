@@ -1,0 +1,68 @@
+﻿@model Employee
+
+<form method="post" asp-action="DeletePOST">
+    <input asp-for="Id" hidden/>
+    <div class="border p-3 mt-4">
+        
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete User</h2>
+            <hr/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px" id="Delete">Delete</button>
+       
+        <a asp-controller="Employee" asp-action="AdminPage" asp-route-id="@Model" class="btn btn-secondary" style="width:150px">Back To List</a>
+       
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" disabled class="form-control" />
+            
+        </div>
+         <div class="mb-3">
+            <label asp-for="EmailId"></label>
+            <input asp-for="EmailId" disabled class="form-control" />
+            
+        </div>
+         <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input value="@Model.Password.ToString()" disabled class="form-control" />
+        </div>
+       
+        <div class="mb-3">
+            <label asp-for="City"></label>
+            <input asp-for="City" disabled class="form-control" />
+            
+        </div>
+        <div class="mb-3">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" disabled class="form-control" />
+            
+        </div>
+        <div class="mb-3">
+            <label asp-for="Department.DepartName"></label>
+            @*<select asp-for="Department.DepartName" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfNames,"Value","Text"))"></select>*@ 
+            @if(TempData["departmentname"]!=null)
+            {
+                  <input value="@TempData["departmentname"].ToString()" disabled class="form-control" />
+            }
+          
+           
+        </div>
+         <div class="mb-3">
+            <label asp-for="Role"></label>
+            <select disabled Role" class="form-control">
+                <option>Admin</option>
+                <option>Employee</option>
+            </select>
+        </div>
+        
+        
+        
+    </div>
+</form>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
+
